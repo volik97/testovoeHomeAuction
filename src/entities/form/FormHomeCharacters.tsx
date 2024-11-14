@@ -4,20 +4,24 @@ import {Formik, Form} from 'formik';
 import CustomField from "@/shared/ui/customField/CustomField";
 import {Button, Input} from "@chakra-ui/react";
 import validationSchema from "@/helpers/yup/formHomeCharacters";
+import IFormHomeCharacters from "@/types/form/formHomeCharacters";
+
+const initialValues: IFormHomeCharacters = {
+    name: '',
+    address: '',
+    floor: -1,
+    totalFloors: 3,
+    square: 0,
+    livingSquare: 0,
+    kitchenSquare: 0
+};
 
 function FormHomeCharacters() {
+
     return (
         <Formik
             className={'flex flex-col gap-10'}
-            initialValues={{
-                name: '',
-                address: '',
-                floor: -1,
-                totalFloors: 3,
-                square: 0,
-                livingSquare: 0,
-                kitchenSquare: 0
-            }}
+            initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
                 alert(`Отправлено: ${values}`);
@@ -76,6 +80,6 @@ function FormHomeCharacters() {
                 </Form>
         </Formik>
     );
-};
+}
 
 export default FormHomeCharacters;
