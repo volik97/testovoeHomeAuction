@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { NumberSchema } from 'yup';
 
 declare module 'yup' {
