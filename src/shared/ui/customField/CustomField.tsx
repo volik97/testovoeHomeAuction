@@ -1,42 +1,36 @@
 'use client'
-import React, {Fragment} from 'react';
+import React from 'react';
 import {ErrorMessage, useField} from "formik";
 import {Radio, RadioGroup} from "@/components/ui/radio";
 
 type CustomFieldType = {
     name: string;
+    placeholder?: string;
     as: React.ElementType; // тип компонента, который мы передаем
-    options?: string[]; // для RadioGroup
+    options?: string[]; // для радио и селект
     label: string; // лейбл поля
     [key: string]: never; // доп пропсы
+    className?: string
 };
-function CustomField({ as: Component, options, label, ...props }: CustomFieldType) {
+function CustomField({ as: Component, options, label, className, ...props }: CustomFieldType) {
     const [field, meta] = useField(props);
     return (
-        <div className={'space-y-2 w-full'}>
+        <div className={`space-y-1 w-full ${className}`}>
             <label>{label}</label>
-            {options ? (
-                <div className={'relative'}>
-                    {/* будет работать и с Select*/}
-                    <Component {...field} {...props}>
+            {/* будет работать и с селектом*/}
+            {options ?
+                    ( <Component className={'flex gap-2 flex-col'} {...field} {...props}>
                         {options.map((option,index) => (
-                            <Fragment key={index}>
-                                {Component === RadioGroup ? (
-                                    <Radio value={option}>{option}</Radio>
+                                Component === RadioGroup ? (
+                                    <Radio key={index} className={'flex gap-2'} value={option}>{option}</Radio>
                                 ) : (
-                                    <option value={option}>{option}</option>
-                                )}
-                            </Fragment>
+                                    <option key={index} value={option}>{option}</option>
+                                )
                         ))}
-                    </Component>
-                    <ErrorMessage className={'absolute'} name={field.name} />
-                </div>
-            ) : (
-                <div className={'relative'}>
-                    <Component {...field} {...props}/>
-                    {meta.touched && meta.error && <div className={'absolute text-red-500 -mb-2 text-sm'}><ErrorMessage name={field.name}/></div>}
-                </div>
+                    </Component>) : (
+                    <Component className={'space-x-2'} {...field} {...props}/>
             )}
+            {meta.touched && meta.error && <div className={'text-red-500 text-sm'}><ErrorMessage name={field.name}/></div>}
         </div>
     )
 }

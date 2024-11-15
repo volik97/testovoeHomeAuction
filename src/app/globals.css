@@ -9,7 +9,9 @@ label[data-scope='checkbox']{
 label[data-scope='checkbox'] div[data-part='control']{
     border-width: 1px;
 }
-
+span[data-scope="radio-group"][data-part="item-control"]{
+    border-width: 1px;
+}
 .chakra-input{
     padding: 8px 12px;
     border-width: 1px;

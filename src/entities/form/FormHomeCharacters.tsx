@@ -23,11 +23,12 @@ function FormHomeCharacters() {
             className={'flex flex-col gap-10'}
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-                alert(`Отправлено: ${values}`);
+            onSubmit={(values, {resetForm}) => {
+                console.log(values);
+                resetForm();
             }}
         >
-                <Form className={'flex flex-col gap-8 items-center'}>
+                <Form className={'flex flex-col gap-4 items-center'}>
                     <CustomField
                         label="Название объекта"
                         name="name"

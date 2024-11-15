@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import {number, Reference} from "yup";
+import {Reference} from "yup";
 
 Yup.setLocale({
     mixed: {
