@@ -39,41 +39,35 @@ function FormHomeCharacters() {
                         label="Адрес"
                         name="address"
                         as={Input}
-                        colorPalette={'gray'}
                         placeholder="Введите адрес"
                     />
                     <CustomField
                         label="Этаж"
                         name="floor"
-                        colorPalette={'gray'}
                         as={Input}
                         placeholder="-1"
                     />
                     <CustomField
                         label="Количество этажей в доме"
                         name="totalFloors"
-                        colorPalette={'gray'}
                         as={Input}
                         placeholder="3"
                     />
                     <CustomField
                         label="Площадь"
                         name="square"
-                        colorPalette={'gray'}
                         as={Input}
                         placeholder="0"
                     />
                     <CustomField
                         label="Жилая площадь"
                         name="livingSquare"
-                        colorPalette={'gray'}
                         as={Input}
                         placeholder="0"
                     />
                     <CustomField
                         label="Площадь кухни"
                         name="kitchenSquare"
-                        colorPalette={'gray'}
                         as={Input}
                         placeholder="0"
                     />

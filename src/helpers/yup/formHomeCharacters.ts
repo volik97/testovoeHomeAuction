@@ -20,7 +20,7 @@ Yup.addMethod(Yup.number, 'moreThanSumOfFields', function (fields: string[]) {
                 const fieldValue = parent[fieldName] || 0;
                 return acc + fieldValue;
             }, 0);
-            return value > sum;
+            if(value) return value > sum;
         }
     );
 });
