@@ -1,4 +1,4 @@
-export default interface IFormTestRadioAndCheckbox{
-    checkbox?: string[]
-    radiogroup?: string
+export default interface IFormTestRadioAndCheckbox {
+	checkbox: string[] | [];
+	radiogroup?: string;
 }
